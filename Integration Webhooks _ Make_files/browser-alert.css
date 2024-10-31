@@ -1,0 +1,67 @@
+.browser-alert {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1040;
+	width: 100vw;
+	height: 100vh;
+}
+
+.browser-alert-backdrop {
+	background-color: var(--white);
+	opacity: 0.5;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1040;
+	width: 100vw;
+	height: 100vh;
+}
+
+.browser-alert-dialog {
+	font-family: BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+		'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+	font-size: 1rem;
+	font-weight: 400;
+	box-shadow: 0 20px 60px 0 var(--imt-aside-nav-item-active-bg);
+	max-width: 500px;
+	margin: 1.75rem auto;
+	position: relative;
+	width: auto;
+	z-index: 1050;
+}
+
+.browser-alert-content {
+	padding: 1.5rem;
+	background-color: var(--imt-body-bg);
+	opacity: 1;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	pointer-events: auto;
+	background-clip: padding-box;
+	border: 1px solid var(--imt-aside-nav-item-active-bg);
+	border-radius: 0.3rem;
+	outline: 0;
+}
+
+.browser-alert-content > h2 {
+	text-align: center;
+}
+
+.browser-alert-table {
+	width: 100%;
+	text-align: center;
+}
+
+.browser-alert-link {
+	text-decoration: none;
+	color: var(--imt-link-color);
+}
+
+.browser-alert-link > img {
+	width: 48px;
+	border: 0;
+	margin-bottom: 12px;
+}

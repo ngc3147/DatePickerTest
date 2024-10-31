@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voiceflow Chat Test</title>
+</head>
+<body>
+    <h1>Test Voiceflow Chat with Timer Extension</h1>
+    <!-- Placeholder where the Web Chat widget will be loaded -->
+    <div id="vf-chat"></div>
+
+    <!-- Voiceflow Web Chat SDK -->
+    <script src="https://static.voiceflow.com/webchat/latest/bundle.js"></script>
+
+    <script>
+        // Timer Extension Code
+        const TimerExtension = {
+            name: 'TimerExtension',
+            type: 'effect',
+            match: ({ trace }) => trace.type === 'timer_ext',
+            effect: async ({ trace }) => {
+                console.log('Timer started');
+                // Wait for 7 seconds
+                await new Promise((resolve) => setTimeout(resolve, 7000));
+                console.log('Timer ended');
+                // Signal completion to Voiceflow
+                window.voiceflow.chat.interact({ type: 'complete', payload: {} });
+            },
+        };
+
+        // Initialize Voiceflow Web Chat with Timer Extension
+        window.voiceflow.chat.load({
+            verify: { projectID: 67112fb23a147da6099bea28 }, // Replace with your Voiceflow project ID
+            url: "https://general-runtime.voiceflow.com",
+            versionID: "67112fb23a147da6099bea29",
+            assistant: {
+                extensions: [TimerExtension],
+            },
+        });
+    </script>
+</body>
+</html>
