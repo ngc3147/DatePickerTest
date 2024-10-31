@@ -37,6 +37,13 @@
                 }
             })
             .catch(error => console.error("Network error:", error));
+
+            // Send selected date and time back to Voiceflow
+            window.parent.postMessage({
+                type: "userSelectedDateAndTime",
+                selectedDate: selectedDate,
+                selectedTime: selectedTime
+            }, "*");
         });
     </script>
 </body>
